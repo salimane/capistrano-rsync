@@ -72,10 +72,7 @@ git_depth = lambda do
   depth
 end
 
-git_depth_clone = lambda do
-  depth = !!fetch(:rsync_depth, false) ? "--depth=#{fetch(:rsync_depth)} --no-single-branch" : ""
-  depth
-end
+git_depth_clone = git_depth
 
 Rake::Task["deploy:check"].enhance ["rsync:hook_scm"]
 
